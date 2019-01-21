@@ -24,8 +24,8 @@ if __name__ == "__main__":
     other_list = [filename for filename in os.listdir(other_path) if not filename.startswith('.')]
 
     if args.shuffle:
-        random.shuffle(gist_path)
-        random.shuffle(other_path)
+        random.shuffle(gist_list)
+        random.shuffle(other_list)
 
     i = 0
     for img_path in gist_list:
