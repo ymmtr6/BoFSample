@@ -20,8 +20,8 @@ if __name__ == "__main__":
     gist_path = os.path.join(ROOT, "gist")
     other_path = os.path.join(ROOT, "other")
 
-    gist_list = [filename for filename in listdir(gist_path) if not filename.startswith('.')]
-    other_list = [filename for filename in listdir(other_path) if not filename.startswith('.')]
+    gist_list = [filename for filename in os.listdir(gist_path) if not filename.startswith('.')]
+    other_list = [filename for filename in os.listdir(other_path) if not filename.startswith('.')]
 
     if args.shuffle:
         random.shuffle(gist_path)
