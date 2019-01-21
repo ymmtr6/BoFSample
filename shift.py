@@ -60,13 +60,6 @@ if __name__ == "__main__":
         array.append([label, descriptors[1]])
         i = i + 1
 
-    with open("train.txt", "w") as f:
-        for label, keypoint in array:
-            f.write("{} ".format(label))
-            for i, key in enumerate(keypoint):
-                f.write("{}:{} ".format(i, key))
-            f.write("\n")
-
     with open(args.output_pickle, "wb") as f:
         pickle.dump(array, f)
     
