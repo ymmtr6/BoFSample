@@ -11,6 +11,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("num", default=-1, type=int)
     parser.add_argument("--shuffle", "-s", action="store_false")
+    parser.add_argument("--output", "-o", default="label.txt", type=str)
     args = parser.parse_args()
 
     array = []
