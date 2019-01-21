@@ -44,6 +44,6 @@ if __name__ == "__main__":
         else:
             i+=1
     
-    with open("label.txt", "w") as f:
+    with open(args.output, "w") as f:
         for path, number in array:
             f.write("{} {}\n".format(path, number))
