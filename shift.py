@@ -57,7 +57,7 @@ if __name__ == "__main__":
         if args.output_image != "":
             output_image(img, keypoints, args.output_image + "/" + str(i) + "_kp.png")
         
-        array.append([label, descriptors])
+        array.append([label, descriptors[1]])
         i = i + 1
 
     with open("train.txt", "w") as f:
@@ -68,6 +68,5 @@ if __name__ == "__main__":
             f.write("\n")
 
     with open(args.output_pickle, "wb") as f:
-        for label, des in array:
-            pickle.dump((label, des), f)
+        pickle.dump(array, f)
     
