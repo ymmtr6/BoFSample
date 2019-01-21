@@ -69,5 +69,5 @@ if __name__ == "__main__":
 
     with open(args.output_pickle, "wb") as f:
         for label, des in array:
-            pickle.dump((label, keypoint), f)
+            pickle.dump((label, des), f)
     
