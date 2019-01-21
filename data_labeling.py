@@ -5,7 +5,7 @@ import os
 ROOT = "./data"
 if __name__ == "__main__":
     array = []
-    count = 30
+    count = 1000
     
     i = 0
     for img_path in os.listdir(os.path.join(ROOT, "gist")):
