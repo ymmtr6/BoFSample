@@ -20,13 +20,12 @@ if __name__ == "__main__":
     gist_path = os.path.join(ROOT, "gist")
     other_path = os.path.join(ROOT, "other")
 
-    if args.shuffle:
-        random.shuffle(gist_path)
-        random.shuffle(other_path)
-
     gist_list = [filename for filename in listdir(gist_path) if not filename.startswith('.')]
     other_list = [filename for filename in listdir(other_path) if not filename.startswith('.')]
 
+    if args.shuffle:
+        random.shuffle(gist_path)
+        random.shuffle(other_path)
 
     i = 0
     for img_path in gist_list:
