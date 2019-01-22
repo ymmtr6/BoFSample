@@ -25,7 +25,7 @@ def keypoint_info(keypoint):
 def main(input, output_pickle, color, detector):
     name, ext = os.path.splitext(input)
     if ext == ".txt":
-        dataset = load_dataset(args.input, args.color)
+        dataset = load_dataset(input, color)
     else:
         dataset = []
         dataset.append([0, load_image(input, color)])
