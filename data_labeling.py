@@ -25,8 +25,16 @@ if __name__ == "__main__":
     gist_list = [filename for filename in os.listdir(gist_path) if not filename.startswith('.')]
     other_list = [filename for filename in os.listdir(other_path) if not filename.startswith('.')]
 
+    targets = []
 
-    target = "g1"
+    for i in range(32):
+        targets.append("g{}-".format(i+1))
+    
+    for i in range(11):
+        targets.append("o{}-".format(i+1))
+    
+    target = targets[0]
+
     for img_path in gist_list:
         p = os.path.join(ROOT, "gist", img_path)
         if img_path.startswith(target):
