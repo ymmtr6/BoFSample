@@ -45,6 +45,6 @@ if __name__ == "__main__":
         for path, number in train:
             f.write("{} {}\n".format(path, number))
 
-    with open("{}-{}-test.txt".format(args.output, test), "w") as f:
+    with open("{}-{}-test.txt".format(args.output, target), "w") as f:
         for path, number in test:
             f.write("{} {}\n".format(path, number))
