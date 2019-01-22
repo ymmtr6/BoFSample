@@ -62,10 +62,6 @@ def main(input1, input2, output, output2):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("input", type=str)
-    parser.add_argument("input2", type=str)
-    parser.add_argument("output", type=str)
-    parser.add_argument("output2", type=str)
     parser.add_argument("--n_clusters", "-c", default=100, type=int)
     args = parser.parse_args()
 
