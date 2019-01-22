@@ -70,4 +70,13 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # main(args.input1, args.input2, args.output, args.output2)
+
+    targets = []
+    for i in range(32):
+        targets.append("g{}-".format(i+1))
+    for i in range(11):
+        targets.append("o{}-".format(i+1))
+    
+    for target in targets:
+        main("{}train.pickle".format(target), "{}test.pickle".format(target), "{}test.txt".format(target), "{}test.txt".format(target))
     
