@@ -36,6 +36,29 @@ def array_structure_change(array):
             km_in.append(kp)
     return labels, len_points, km_in 
 
+def main(input1, input2, output, output2):
+    with open(input, "rb") as f_tr:
+        array = pickle.load(f_tr)
+    array = array_structure_change(array)
+
+    km = MiniBatchKMeans(n_clusters=args.n_clusters, batch_size=1000, max_no_improvement=10)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        km.fit(array[2])
+    
+    km_out = km.predict(array[2])
+
+    make_dataset(args.n_clusters, array[0], array[1], km_out, output)
+
+    with open(input2, "rb") as f_te:
+        array = pickle.load(f_te) 
+    
+    array = array_structure_change(array)
+
+    km_out = km.predict(array[2])
+
+    make_dataset(args.n_clusters, array[0], array[1], km_out, output2)
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
@@ -46,25 +69,4 @@ if __name__ == "__main__":
     parser.add_argument("--n_clusters", "-c", default=100, type=int)
     args = parser.parse_args()
 
-    with open(args.input, "rb") as f_tr:
-        array = pickle.load(f_tr)
-    
-    array = array_structure_change(array)
-
-    km = MiniBatchKMeans(n_clusters=args.n_clusters, batch_size=1000, max_no_improvement=10)
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore")
-        km.fit(array[2])
-    
-    km_out = km.predict(array[2])
-
-    make_dataset(args.n_clusters, array[0], array[1], km_out, args.output)
-
-    with open(args.input2, "rb") as f_te:
-        array = pickle.load(f_te) 
-    
-    array = array_structure_change(array)
-
-    km_out = km.predict(array[2])
-
-    make_dataset(args.n_clusters, array[0], array[1], km_out, args.output2)
+    # main(args.input1, args.input2, args.output, args.output2)
