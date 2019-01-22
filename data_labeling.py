@@ -7,7 +7,7 @@ import argparse
 ROOT = "./data"
 
 def write(filepath, array):
-    with open(filepath, "w"):
+    with open(filepath, "w") as f:
         for path, number in array:
             f.write("{} {}\n".format(path, number))
 
@@ -26,9 +26,9 @@ def dist(gist_list, other_list, target):
     for img_path in other_list:
         p = os.path.join(ROOT, "other", img_path)
         if img_path.startswith(target):
-            test.append( [p, 0])
+            test.append( [p, 1])
         else:
-            train.append([p, 0])
+            train.append([p, 1])
     
     with open("{}-{}train.txt".format(args.output, target), "w") as f:
         for path, number in train:
