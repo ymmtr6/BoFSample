@@ -37,7 +37,7 @@ def array_structure_change(array):
     return labels, len_points, km_in 
 
 def main(input1, input2, output, output2):
-    with open(input, "rb") as f_tr:
+    with open(input1, "rb") as f_tr:
         array = pickle.load(f_tr)
     array = array_structure_change(array)
 
