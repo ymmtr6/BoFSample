@@ -74,5 +74,5 @@ if __name__ == "__main__":
         targets.append("o{}-".format(i+1))
     
     for target in targets:
-        main("{}train.pickle".format(target), "{}test.pickle".format(target), "{}test.txt".format(target), "{}test.txt".format(target))
+        main("{}train.pickle".format(target), "{}test.pickle".format(target), "{}train.txt".format(target), "{}test.txt".format(target))
     
