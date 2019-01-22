@@ -6,16 +6,18 @@ import argparse
 
 ROOT = "./data"
 
+def write(filepath, array):
+    with open(filepath, "w"):
+        for path, number in array:
+            f.write("{} {}\n".format(path, number))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("num", default=-1, type=int)
-    parser.add_argument("--shuffle", "-s", action="store_false")
-    parser.add_argument("--output", "-o", default="label.txt", type=str)
+    parser.add_argument("--output", "-o", default="label", type=str)
     args = parser.parse_args()
 
-    array = []
-    count = args.num
+    train = []
+    test = []
 
     gist_path = os.path.join(ROOT, "gist")
     other_path = os.path.join(ROOT, "other")
@@ -23,26 +25,26 @@ if __name__ == "__main__":
     gist_list = [filename for filename in os.listdir(gist_path) if not filename.startswith('.')]
     other_list = [filename for filename in os.listdir(other_path) if not filename.startswith('.')]
 
-    if args.shuffle:
-        random.shuffle(gist_list)
-        random.shuffle(other_list)
 
-    i = 0
+    target = "g1"
     for img_path in gist_list:
-        array.append( [os.path.join(ROOT, "gist", img_path), 0])
-        if i == count - 1 and count != -1:
-            break
+        p = os.path.join(ROOT, "gist", img_path)
+        if img_path.startswith(target):
+            test.append( [p, 0])
         else:
-            i+=1
+            train.append( [p, 0] )
 
-    i = 0
     for img_path in other_list:
-        array.append( [os.path.join(ROOT, "other", img_path), 1])
-        if i == count - 1 and count != -1:
-            break
+        p = os.path.join(ROOT, "other", img_path)
+        if img_path.startswith(target):
+            test.append( [p, 0])
         else:
-            i+=1
+            train.append([p, 0])
     
-    with open(args.output, "w") as f:
-        for path, number in array:
+    with open("{}-{}-train.txt".format(args.output, target), "w") as f:
+        for path, number in train:
+            f.write("{} {}\n".format(path, number))
+
+    with open("{}-{}-test.txt".format(args.output, test), "w") as f:
+        for path, number in test:
             f.write("{} {}\n".format(path, number))
