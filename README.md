@@ -7,9 +7,9 @@ Sift-SVMを用いて精度を確かめる．
 ## 環境構築
 
 ```
-$ wget "http://www.csie.ntu.edu.tw/~cjlin/cgi-bin/libsvm.cgi?+http://www.csie.ntu.edu.tw/~cjlin/libsvm+zip"
-$ unzip libsvm-3.12.zip
-$ cd libsvm-3.12
+$ wget "http://www.csie.ntu.edu.tw/~cjlin/cgi-bin/libsvm.cgi?+http://www.csie.ntu.edu.tw/~cjlin/libsvm+zip" -O libsvm-3.23.zip
+$ unzip libsvm-3.23.zip
+$ cd libsvm-3.23
 $ gmake
 ```
 
