@@ -6,3 +6,6 @@ data/*
 
 *.zip
 *.pyc
+
+*.png
+*.jpg
