@@ -7,7 +7,7 @@ nbi = "NBI"
 normal = "normal"
 pit = "pit"
 
-def classify(root)
+def classify(root):
     root_list = os.listdir(root)
     for i in root_list:
         if i.endswith("DS_Store"):
