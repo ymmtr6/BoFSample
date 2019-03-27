@@ -26,7 +26,7 @@ def dist(method_root, target):
 
     a_list = random.shuffle(os.listdir(a_path))
     b_list = random.shuffle(os.listdir(b_path))
-    c_list = random.shuffle(os.listdir(c_list))
+    c_list = random.shuffle(os.listdir(c_path))
 
     a_count = len(a_list)
     b_count = len(b_list)
