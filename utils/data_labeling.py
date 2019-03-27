@@ -23,11 +23,12 @@ def dist(method_root, target):
     a_path = join(ROOT, method_root, A)
     b_path = join(ROOT, method_root, B)
     c_path = join(ROOT, method_root, C)
-
-    a_list = random.shuffle(os.listdir(a_path))
-    b_list = random.shuffle(os.listdir(b_path))
-    c_list = random.shuffle(os.listdir(c_path))
-
+    a_list = os.listdir(a_path)
+    b_list = os.listdir(b_path)
+    c_list = os.listdir(c_path)
+    random.shuffle(a_list)
+    random.shuffle(b_list)
+    random.shuffle(c_list)
     a_count = len(a_list)
     b_count = len(b_list)
     c_count = len(c_list)
