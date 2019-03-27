@@ -3,6 +3,7 @@
 import os 
 import random 
 import argparse 
+from os.path import join
 
 ROOT = "../data"
 A = "a"
@@ -19,12 +20,13 @@ def dist(method_root, target):
     """
 
     """
-    train = []
-    test = []
+    a_path = join(ROOT, method_root, A)
+    b_path = join(ROOT, method_root, B)
+    c_path = join(ROOT, method_root, C)
 
-    a_list = os.path.join(ROOT, method_root, A)
-    b_list = os.path.join(ROOT, method_root, B)
-    c_list = os.path.join(ROOT, method_root, C)
+    a_list = random.shuffle(os.listdir(a_path))
+    b_list = random.shuffle(os.listdir(b_path))
+    c_list = random.shuffle(os.listdir(c_list))
 
     a_count = len(a_list)
     b_count = len(b_list)
@@ -32,3 +34,19 @@ def dist(method_root, target):
 
     minimum = min(a_count, b_count, c_count)
     
+    a_subset = []
+    b_subset = []
+    c_subset = []
+    for i in range(10):
+        a_l = []
+        b_l = []
+        c_l = []
+        for _ in range(minimum / 10):
+            a_l.append(join(a_path, a_list.pop(0)))
+            b_l.append(join(b_path, b_list.pop(0)))
+            c_l.append(join(c_path, a_list.pop(0)))
+        a_subset.append(a_l) 
+        b_subset.append(b_l) 
+        c_subset.append(c_l)
+    
+    return a_subset, b_subset, c_subset
