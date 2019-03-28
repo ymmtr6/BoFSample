@@ -5,7 +5,7 @@ import random
 import argparse 
 from os.path import join
 
-ROOT = "../data"
+ROOT = "data"
 A = "a"
 B = "b"
 C = "none"
