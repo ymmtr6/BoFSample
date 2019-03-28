@@ -38,14 +38,16 @@ def dist(method_root):
     a_subset = []
     b_subset = []
     c_subset = []
+    count = 0
     for i in range(10):
         a_l = []
         b_l = []
         c_l = []
-        for _ in range(minimum // 10):
+        for _ in range(minimum/10):
+            #print(len(a_list))
             a_l.append(join(a_path, a_list.pop(0)))
             b_l.append(join(b_path, b_list.pop(0)))
-            c_l.append(join(c_path, a_list.pop(0)))
+            c_l.append(join(c_path, c_list.pop(0)))
         a_subset.append(a_l) 
         b_subset.append(b_l) 
         c_subset.append(c_l)
@@ -78,5 +80,6 @@ def labeling(method, k=100):
     write("{}_all.txt".format(method), all_l)
 
 if __name__ == "__main__":
+    labeling("NBI")
     labeling("pit")
     labeling("normal")
