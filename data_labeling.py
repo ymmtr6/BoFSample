@@ -34,7 +34,7 @@ def dist(method_root):
     c_count = len(c_list)
 
     minimum = min(a_count, b_count, c_count)
-    
+    print("{},{},{}. min({})".format(a_count, b_count, c_count, minimum))
     a_subset = []
     b_subset = []
     c_subset = []
