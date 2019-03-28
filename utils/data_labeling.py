@@ -16,7 +16,7 @@ def write(filepath, array):
             f.write("{} {}\n".format(path, number))
     
 
-def dist(method_root, target):
+def dist(method_root):
     """
 
     """
@@ -51,3 +51,26 @@ def dist(method_root, target):
         c_subset.append(c_l)
     
     return a_subset, b_subset, c_subset
+
+def labeling(method, k=10):
+    a_sub, b_sub, c_sub = dist(method)
+    for i in range(10):
+        train = []
+        test = []
+        
+        for j in range(10):        
+            for a, b, c in zip(a_sub[j], b_sub[j], c_sub[j]):
+                if i != j:
+                    train.append([a, 0])
+                    train.append([b, 1])
+                    train.append([c, 2])
+                else:
+                    test.append([a, 0])
+                    test.append([b, 1])
+                    test.append([c, 2])
+        
+        write("{}-{}.train.text".format(method, i) target)
+        write("{}-{}.test.txt".format(method, i), test)
+
+if __name__ == "__main__":
+    labeling("NBI")
