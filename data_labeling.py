@@ -69,7 +69,7 @@ def labeling(method, k=10):
                     test.append([b, 1])
                     test.append([c, 2])
         
-        write("{}-{}.train.text".format(method, i), train)
+        write("{}-{}.train.txt".format(method, i), train)
         write("{}-{}.test.txt".format(method, i), test)
 
 if __name__ == "__main__":
