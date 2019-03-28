@@ -63,10 +63,15 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--n_clusters", "-c", default=100, type=int)
+    parser.add_argument("input1", type=str)
+    parser.add_argument("input2", type=str)
+    parser.add_argument("output", type=str)
+    parser.add_argument("output2", type=str)
     args = parser.parse_args()
 
-    # main(args.input1, args.input2, args.output, args.output2)
+    main(args.input1, args.input2, args.output, args.output2)
 
+    exit()
     targets = []
     for i in range(32):
         targets.append("g{}-".format(i+1))
