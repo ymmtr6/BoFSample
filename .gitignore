@@ -9,3 +9,6 @@ data/*
 
 *.png
 *.jpg
+
+*.txt
+*.pickle
