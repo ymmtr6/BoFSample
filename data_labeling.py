@@ -43,7 +43,7 @@ def dist(method_root):
         a_l = []
         b_l = []
         c_l = []
-        for _ in range(minimum/10):
+        for _ in range(minimum//10):
             #print(len(a_list))
             a_l.append(join(a_path, a_list.pop(0)))
             b_l.append(join(b_path, b_list.pop(0)))
