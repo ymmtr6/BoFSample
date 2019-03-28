@@ -65,17 +65,12 @@ if __name__ == "__main__":
         #detector = cv2.xfeatures2d.SIFT_create()
         detector = cv2.ORB_create()
     
-    #main(args.input, args.output_pickle, args.color, detector)
+    main(args.input, args.output_pickle, args.color, detector)
 
-    targets = []
-    for i in range(32):
-        targets.append("g{}-".format(i+1))
-    for i in range(11):
-        targets.append("o{}-".format(i+1))
     
-    for target in targets:
-        main("label-{}train.txt".format(target), "{}train.pickle".format(target), args.color, detector)
-        main("label-{}test.txt".format(target), "{}test.pickle".format(target), args.color, detector)
+    #for target in targets:
+    #    main("label-{}train.txt".format(target), "{}train.pickle".format(target), args.color, detector)
+    #    main("label-{}test.txt".format(target), "{}test.pickle".format(target), args.color, detector)
 
     
     
