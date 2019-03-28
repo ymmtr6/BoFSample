@@ -52,12 +52,13 @@ def dist(method_root):
     
     return a_subset, b_subset, c_subset
 
-def labeling(method, k=10):
+def labeling(method, k=100):
     a_sub, b_sub, c_sub = dist(method)
+    all_l = []
     for i in range(10):
         train = []
         test = []
-        
+    
         for j in range(10):        
             for a, b, c in zip(a_sub[j], b_sub[j], c_sub[j]):
                 if i != j:
@@ -68,9 +69,13 @@ def labeling(method, k=10):
                     test.append([a, 0])
                     test.append([b, 1])
                     test.append([c, 2])
+                all_l.append([a, 0])
+                all_l.append([b, 1])
+                all_l.append([c, 2])
         
         write("{}-{}.train.txt".format(method, i), train)
         write("{}-{}.test.txt".format(method, i), test)
+    write("{}_all.txt".format(method), all_l)
 
 if __name__ == "__main__":
     labeling("NBI")
