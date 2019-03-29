@@ -5,9 +5,11 @@ RUN set -x \
 && apt-get update \
 && apt-get install -y python3-pip python3-dev \
 && apt-get install -y make wget unzip \
+&& apt-get instal -y libsm6 libxrender1 libfontconfig1 libxext6 \
 && cd /usr/local/bin \
 && ln -s /usr/bin/python3 python \
-&& pip3 install --upgrade pip
+&& pip3 install --upgrade pip \
+&& pip3 install opencv-python sklearn
 
 # setup libsvm
 RUN set -x \
